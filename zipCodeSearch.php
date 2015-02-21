@@ -6,7 +6,7 @@ $conn = new mysqli("localhost", "root", "", "soap_towel_campaign");
 //Create aquery for the database to execute
 $query = "SELECT * FROM `homeless_shelters` WHERE ZipCode='46545'";
 
-//query it and put informaiton into result(array)
+//query it and put information into result(array)
 $result = mysqli_query($conn, $query);
 
 $rows = mysqli_num_rows($result);
