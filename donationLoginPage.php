@@ -33,7 +33,7 @@ for($i = 0; $i < $rows; ++$i)
 	echo ''.	$row[0] .'<br>';
 	echo 'Your Donation Requests<br>';
 	echo ''.	$row[1] .' '.	$row[2] .' <br>' ;
-	echo $removeButton;
+	//echo $removeButton;
 	echo ''.	$row[3] .' '.	$row[4] .'<br />';
 	echo ''.	$row[5] .' '.	$row[6] .' <br>' ;
 	echo ''.	$row[7] .' '.	$row[8] .' <br>' ;
@@ -42,6 +42,6 @@ for($i = 0; $i < $rows; ++$i)
 
 }
 ?>
-<button onclick="myFunction()">Remove</button>
+<!--<button onclick="myFunction()">Remove</button>-->
 
 </html>
