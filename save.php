@@ -1,7 +1,7 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "soap_towel_campaign");
+$conn = new mysqli("localhost", "root", "", "a_fresh_start");
 $fh = fopen("C:\\Users\\Joshua\\Desktop\\DatabaseSave.txt", "w+");
-$query = "SELECT * FROM homeless_shelters";
+$query = "SELECT * FROM contact_info";
 
 $result = mysqli_query($conn, $query);
 
@@ -10,9 +10,9 @@ for($i = 0; $i < $rows; ++$i)
 {
 	$text = "";
 	$row = mysqli_fetch_row($result);
-	for($j = 0; $j < 9; ++$j)
+	for($j = 0; $j < 10; ++$j)
 	{
-		if($j != 8) {
+		if($j != 9) {
 			$text = $text . (string)$row[$j] . "-";
 			}
 		else {

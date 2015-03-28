@@ -2,7 +2,7 @@
 //new upload.php
 $myfile = fopen("C:\\Users\\Joshua\\Desktop\\DatabaseSave.txt", "r");
 //open database connection
-$conn = new mysqli("localhost", "root", "", "soap_towel_campaign");
+$conn = new mysqli("localhost", "root", "", "a_fresh_start");
 
 while(!feof($myfile))
 {
@@ -14,9 +14,10 @@ while(!feof($myfile))
 	//gets rid of newline character at the end
 	$strOne = str_replace(array("\r", "\n"), '', $str);
 	//Seperates all the different fields that were delimited by the '-' character.
-	$parts = (explode('-',$strOne,9));
+	$parts = (explode('-',$strOne,10));
 	//Creates sql statement so that it may be reuploaded into database.
-	$sql = "INSERT INTO homeless_shelters VALUES('" . $parts[0] . "','" . $parts[1] . "','" . $parts[2] . "','" . $parts[3] . "','" . $parts[4] . "','" . $parts[5] . "','" . $parts[6] . "','" . $parts[7] . "','" . $parts[8] . "')";
+	$sql = "INSERT INTO contact_info VALUES('" . $parts[0] . "','" . $parts[1] . "','" . $parts[2] . "','" . $parts[3] . "','" . $parts[4] . "','" . 
+					$parts[5] . "','" . $parts[6] . "','" . $parts[7] . "','" . $parts[8] . "','" . $parts[9] . "')";
 	echo $sql . "<br />";
 	if($conn->query($sql) === TRUE)
 		echo "New Record Created";
