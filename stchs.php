@@ -1,5 +1,5 @@
 <?php //Soap Towel Adding people to a database
-$conn = new mysqli("localhost", "root", "", "soap_towel_campaign");
+$conn = new mysqli("localhost", "root", "", "a_fresh_start");
 
 if($conn-> connect_error)
 	die("Connection failed: " . $conn->connect_error);
@@ -25,13 +25,9 @@ if($conn-> connect_error)
 			$phoneNumber = get_post('phoneNumber');
 			$email = get_post('email');
 			
-			$sql = "INSERT INTO homeless_shelters VALUES('$username', '$password', '$name', '$address', '$city',
-					'$state', '$zipCode', '$phoneNumber', '$email')";
+			$sql = "INSERT INTO contact_info VALUES('$username', '$name', '$address', '$city',
+					'$state', '$zipCode', '$phoneNumber', '$email' , 0, '$password')";
 					
-			$conn->query($sql);
-			
-			$sql = "INSERT INTO homeless_shelter_login VALUES('$username', '$password')";
-			
 			$conn->query($sql);
 	   }
 echo <<<EOL
@@ -53,7 +49,7 @@ EOL;
 	
 	function get_post($var)
 	{
-		$conn = new mysqli("localhost", "root", "", "soap_towel_campaign");
+		$conn = new mysqli("localhost", "root", "", "a_fresh_start");
 		return mysqli_real_escape_string($conn, $_POST[$var]);
 	}
 ?>
