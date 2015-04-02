@@ -27,14 +27,22 @@ echo 'Your Donation Requests<br>';
 	$row = mysqli_fetch_row($result);
 	//echo 'Name: ' . mysql_result($result,$i,'name') . '<br />';
 	echo ''.	$row[0] .'<br>';
+	echo 'Item || Quantity || Importance<br>';
 	$listString = $row[1];
 	$previousIndex = 0;
+	$columnCounter = 0;
 	
 	// Takes the listString which holds the selected shelters needed items and seperates the string and removes the dashes
 	while(strlen($listString)>0){
 		$currentIndex = strpos($listString,'-');
-		echo ''. substr($listString,0,$currentIndex) .'<br>';
+		if($columnCounter%3 == 2){
+			echo ''. substr($listString,0,$currentIndex) .'<br>';
+		}
+		else {
+			echo ''. substr($listString,0,$currentIndex) .' || ';		
+		}
 		$listString = substr($listString,$currentIndex + 1);
+		$columnCounter++;
 	}
 
 
