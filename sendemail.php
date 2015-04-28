@@ -1,5 +1,5 @@
 <?php
-	$from = 'lee1961purdue.edu.com';
+	$from = 'lee1961@purdue.edu';
 	
 	$subject = $_POST['subject'];
 	$text = $_POST['mail'];

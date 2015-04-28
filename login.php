@@ -54,5 +54,4 @@ EOL;
 		$conn = new mysqli("localhost", "root", "", "a_fresh_start");
 		return mysqli_real_escape_string($conn, $_POST[$var]);
 	}
-
 ?>
