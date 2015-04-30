@@ -18,7 +18,7 @@ $query = "SELECT * FROM `DonationTable` WHERE Shelter='$Shelter'";
 $result = mysqli_query($conn, $query);
 
 $rows = mysqli_num_rows($result);
-$removeButton = "<button onclick='alert('helloworld')'>Removes</button>";
+//$removeButton = "<button onclick='alert('helloworld')'>Remove</button>";
 
 
 // Retreives Information from Database and prints the Shelter name and saves the string to listString
@@ -36,8 +36,14 @@ echo 'Your Donation Requests<br>';
 	while(strlen($listString)>0){
 		$currentIndex = strpos($listString,'-');
 		if($columnCounter%3 == 2){
-			echo ''. substr($listString,0,$currentIndex) .'<br>';
-		}
+			echo ''. substr($listString,0,$currentIndex) .'';
+			echo "<form action='removeTest.php' method='post'>";
+			// Place holders for remove buttons NON working at the moment
+			echo "<input type='submit' name='remove' value='Future remove button'>";
+			//<p id='demo'></p>";
+			//echo "</script>";
+			echo '<br>';
+			}
 		else {
 			echo ''. substr($listString,0,$currentIndex) .' || ';		
 		}
@@ -53,7 +59,8 @@ Item: <input type="text" name="itemArray[3]"> Quantity: <input type="text" name=
 Item: <input type="text" name="itemArray[6]"> Quantity: <input type="text" name="itemArray[7]"> Importance: <input type="text" name="itemArray[8]"><br>
 Item: <input type="text" name="itemArray[9]"> Quantity: <input type="text" name="itemArray[10]"> Importance: <input type="text" name="itemArray[11]"><br>
 Item: <input type="text" name="itemArray[12]"> Quantity: <input type="text" name="itemArray[13]"> Importance: <input type="text" name="itemArray[14]"><br>
-<input type="submit"> <!--submit button-->
+<input type="submit" name="create" value="create"> <!--submit button-->
+<input type="submit" name="remove" value="Remove something">
 </form>
 
 </body>
