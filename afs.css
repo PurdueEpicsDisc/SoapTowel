@@ -1,0 +1,12 @@
+#test {
+	position: absolute;
+	top: 40%;
+	left:43%;
+}
+#afs_header {
+	position: absolute;
+	font-size: 50px;
+	color: red;
+	top:31%;
+	left:855px;
+}

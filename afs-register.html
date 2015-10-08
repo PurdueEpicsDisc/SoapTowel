@@ -1,0 +1,73 @@
+<div ng-controller="regController">
+	<div>A Fresh Start Registration!</div>
+		<div>
+			<form name="regForm" novalidate>
+			<table border="0">
+				<tr><td>Username</td><td><input name="username" type="text" ng-model="username" ng-pattern="/([a-zA-Z0-9]){5,15}$/"  required />
+					<span style="color:red" ng-show="regForm.username.$dirty && regForm.username.$invalid">
+						<span ng-show="regForm.username.$error.pattern">Invalid</span>
+					</span>
+				</td></tr>
+				<tr><td>Password</td><td><input type="password" ng-model="password" name="password" ng-pattern="/([a-zA-Z0-9-_!?*]){8,16}$/" maxlength="16" required />
+					<span style="color:red" ng-show="regForm.password.$dirty && regForm.password.$invalid">
+						<span ng-show="regForm.password.$error.pattern">Invalid Password</span>
+					</span>
+				</td></tr>
+				<tr><td>Confirm password</td><td><input type="password" ng-model="passwordOne" name="passwordOne" maxlength="16" required /></td></tr>
+				<tr><td>Name</td><td><input type="text" ng-model="name" name="name" ng-pattern="/([a-zA-Z ]){6,32}$/" required /> 
+						<span style="color:red" ng-show="regForm.name.$dirty && regForm.name.$invalid">
+							<span ng-show="regForm.name.$error.pattern">Names can only contain letters</span>
+						</span>
+				</td></tr>
+				<!--<tr><td>Address</td><td><input type="text" ng-model="address" name="address" ng-pattern="/\d{3,8}([a-zA-Z ]){6,32}$/" required/>
+					<span style="color:red" ng-show="regForm.address.$dirty && regForm.address.$invalid">
+						<span ng-show="regForm.address.$error.pattern">Invalid Address</span>
+						</span>
+				</td></tr>
+				<tr><td>City</td><td><input type="text" ng-model="city" name="city" ng-pattern="/^([a-zA-Z]){4,15}$/" maxlength="15" required/>
+					<span style="color:red" ng-show="regForm.city.$dirty && regForm.city.$invalid">
+						<span ng-show="regForm.city.$error.pattern">Cities can only contain letters</span>
+					</span>
+				</td></tr>
+				<tr><td>State</td><td><input type="text" ng-model="state" name="state" maxlength="15" ng-maxlength="15"ng-pattern="/^([a-zA-Z]){4,15}$/" required/>
+					<span style="color:red" ng-show="regForm.state.$dirty && regForm.state.$invalid">
+						<span ng-show="regForm.state.$error.pattern">States can only contain letters</span>
+					</span>
+				</td></tr>
+				<tr><td>Zip Code</td><td><input type="text" ng-model="zipCode" name="zipCode" ng-maxlength="6" ng-pattern="/\d{5,10}/"required/>
+					<span style="color:red" ng-show="regForm.zipCode.$dirty && regForm.zipCode.$invalid" >
+						<span ng-show="regForm.zipCode.$error.pattern">Invalid Zip Code</span>
+					</span>
+				</td></tr>
+				<tr><td>Phone Number</td><td><input type="text" ng-model="phoneNumber" name="phoneNumber" ng-pattern="/\b\d{3}[-]\d{3}[-]\d{4}\b/" required />
+					<span style="color:red" ng-show="regForm.phoneNumber.$dirty && regForm.phoneNumber.$invalid">
+						<span ng-show="regForm.phoneNumber.$error.pattern">Invalid phone number</span>
+					</span>
+				</td></tr>-->
+				<tr><td>Email </td><td><input type="email" ng-model="email" name="email" ng-pattern="/([a-zA-Z0-9])[@][a-zA-Z]{4,20}[.]\w{3}$/" required/>
+					<span style="color:red" ng-show="regForm.email.$dirty && regForm.email.$invalid">
+						<!-- Regex Expression to match email! -->
+						<span ng-show="regForm.email.$error.pattern">Invalid email address</span>
+					</span>
+				</td></tr>
+				<tr><th>Type</th></tr>
+				<tr><td>Shelter </td><td><input type="radio" name="org" ng-value="1" required/></td></tr>
+				<tr><td>Organization </td><td><input type="radio" name="org" ng-value="2" required/></td></tr>
+				<tr><td>Person </td><td><input type="radio" name="org" ng-value="3" required/></td></tr>
+				<tr><td><button ng-disabled="regForm.username.$dirty && regForm.username.$invalid ||
+						regForm.password.$dirty && regForm.password.$invalid ||
+						regForm.name.$dirty && regForm.name.$invalid ||
+						regForm.address.$dirty && regForm.address.$invalid ||
+						regForm.city.$dirty && regForm.city.$invalid ||
+						regForm.state.$dirty && regForm.state.$invalid ||
+						regForm.zipCode.$dirty && regForm.zipCode.$invalid ||
+						regForm.phoneNumber.$dirty && regForm.phoneNumber.$invalid ||
+						regForm.email.$dirty && regForm.email.$invalid" ng-click="register()">Register</button>
+					</td></tr>
+			</table>
+		</form>
+		<div>
+			<a ui-sref="afs.signin">Already have an account sign in!</a>
+		</div>
+	</div>
+</div>

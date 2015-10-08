@@ -1,0 +1,14 @@
+Password Reset
+<div ng-controller="fpController">
+		<form name="fpForm" novalidate>
+			<table border="0">
+				<tr><td>Email</td><td><input type="email" ng-model="emailOne" name="emailOne" ng-pattern="/([a-zA-Z0-9])[@][a-zA-Z]{4,20}[.]\w{3}$/"required/>
+					<span style="color:red" ng-show="fpForm.emailOne.$dirty && fpForm.emailOne.$invalid">
+						<span ng-show="fpForm.emailOne.$error.pattern">Invalid Email</span>
+					</span>
+				</td></tr>
+				<tr><td><button ng-click="sendEmail()">Reset!</button></td></tr>
+			</table>
+		</form>
+</div>
+	

@@ -1,0 +1,50 @@
+<div ng-controller="srController">
+	<form name="shelterReg" novalidate>
+		<table border="0">
+			<tr><td>Shelter Name:</td><td><input type="text" name="shelterName" ng-model="shelterName" ng-pattern="/([a-zA-Z]){5,15}$/" required/>
+					<span style="color:purple" ng-show="shelterReg.shelterName.$dirty &&  shelterReg.shelterName.$invalid">
+						<span ng-show="shelterReg.shelterName.$error.pattern">Shelter name must be .... length </span>
+				</span>
+				</td></tr>
+			<tr><td>Address:</td><td><input type="text" name="address" ng-model="address" ng-pattern="/\d{3,8}([a-zA-Z ]){6,32}$/" required />
+				<span style="color:purple" ng-show="shelterReg.address.$dirty && shelterReg.address.$invalid">
+					<span ng-show="shelterReg.address.$error.pattern">Address must follow .... </span>
+				</span>
+			</td></tr>
+			<tr><td>City:</td><td><input type="text" name="city" ng-model="city" ng-pattern="/^([a-zA-Z]){4,15}$/" required/>
+				<span style="color:purple" ng-show="shelterReg.city.$dirty && shelterReg.city.$invalid">
+					<span ng-show="shelterReg.city.$error.pattern">City must follow the ..... </span>
+				</span>
+			</td></tr>
+			<tr><td>State: </td><td><input type="text" name="state" ng-model="state"  ng-pattern="/^([a-zA-Z]){4,15}$/" required/>
+				<span style="color:purple" ng-show="shelterReg.state.$dirty && shelterReg.state.$invalid">
+					<span ng-show="shelterReg.state.$error.pattern">State must follow.....</span>
+				</span>
+			</td></tr>
+			<tr><td>Zip Code: </td><td><input type="text" name="zipCode" ng-model="zipCode"  ng-pattern="/\d{5,10}/" required/>
+				<span style="color:purple" ng-show="shelterReg.zipCode.$dirty && shelterReg.zipCode.$invalid">
+					<span ng-show="shelterReg.zipCode.$error.pattern">Zip Code can only contain numbers</span>
+				</span>
+			</td></tr>
+			<tr><td>Email:</td><td><input type="email" ng-model="emailOne" name="emailOne" ng-pattern="/([a-zA-Z0-9])[@][a-zA-Z]{4,20}[.]\w{3}$/" required/>
+				<span style="color:purple" ng-show="shelterReg.emailOne.$dirty && shelterReg.emailOne.$invalid">
+					<span ng-show="shelterReg.emailOne.$error.pattern">Email must follow pattern ....</span>
+				</span>
+			</td></tr>
+			<tr><td>Phone Number: </td><td><input type="text" name="phoneNumber" ng-model="phoneNumber" ng-pattern="/\b\d{3}[-]\d{3}[-]\d{4}\b/" required/>
+				<span style="color:purple" ng-show="shelterReg.phoneNumber.$dirty && shelterReg.phoneNumber.$invalid">
+					<span ng-show="shelterReg.phoneNumber.$error.pattern"> Phone Number must follow....</span>
+				</span>
+			</td></tr>
+			<tr><td><button ng-disabled="shelterReg.shelterName.$dirty && shelterReg.shelterName.$invalid ||
+				shelterReg.address.$dirty && shelterReg.address.$invalid ||
+				shelterReg.city.$dirty && shelterReg.address.$invalid ||
+				shelterReg.state.$dirty && shelterReg.state.$invalid ||
+				shelterReg.zipCode.$dirty && shelterReg.zipCode.$invalid ||
+				shelterReg.emailOne.$dirty && shelterReg.emailOne.$invalid ||
+				shelterReg.phoneNumber.$dirty && shelterReg.phoneNumber.$invalid"
+				ng-click="addShelter()">Register Shelter!</button>
+			</td></tr>
+		</table>
+	</form>
+</div>
