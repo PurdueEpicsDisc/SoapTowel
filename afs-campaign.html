@@ -1,0 +1,19 @@
+
+		<div ng-controller="campaignController">
+			Campaign Registration!
+			<form name="campaignForm">
+				<table border="0">
+					<tr><td>Campaign Name</td><td><input name="campaignName" type="text" ng-model="campaignName"/>
+					</td></tr>
+					<tr><td>Supporting Shelter(s)</td><td><input name="shelterIds" type="text" ng-model="shelterIds"></td></tr>
+					<tr><td>Place</td><td><input name="place" type="text" ng-model="place"></td></tr>
+					<tr><td>Start Date</td><td><input name="startDate" type="text" ng-model="startDate">mm/dd/yyyy</td></tr>
+					<tr><td>End Date</td><td><input name="endDate" type="text" ng-model="endDate">mm/dd/yyyy</td></tr>
+					<tr><td>Description</td><td><textarea rows"4" cols="50" name="description" form="campaignForm" ng-model="description">
+					</textarea></td>
+					<tr><td>Goal</td><td><textarea rows"4" cols="50" name="goal" form="campaignForm" ng-model="goal">
+					</textarea></td>
+					<tr><td><button ng-click="createCampaign()">Register</button></td></tr>
+				</table>
+			</form>
+		</div>

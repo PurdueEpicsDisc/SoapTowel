@@ -34,7 +34,22 @@ angular.module('afsLS', ['ui.router'])
 			url: '/sr',
 			templateUrl: 'afs-sr.html',
 			controller: 'srController'
+		})
+
+		.state('afs.campaign', {
+			url: '/campaign',
+			templateUrl: 'afs-campaign.html',
+			controller: 'campaignController'
+
+		})
+
+		.state('afs.campStatus', {
+			url: '/campaignStatus',
+			templateUrl: 'afs-campStatus.html',
+			controller: 'campStatusController'
+
 		});
+
 
 		$urlRouterProvider.otherwise('/afs/signin');
 })
@@ -175,4 +190,65 @@ angular.module('afsLS', ['ui.router'])
 
 	}
 
+})
+.controller('campaignController', function($scope) {
+	$scope.createCampaign = function() {
+				var _Campaigns = Parse.Object.extend("Campaigns");
+				var _campaigns = new _Campaigns();
+					_campaigns.set("campaignName", $scope.campaignName);
+					_campaigns.set("startDate", $scope.startDate);
+					_campaigns.set("endDate", $scope.endDate);
+					_campaigns.set("place", $scope.place);
+					_campaigns.set("description", $scope.description);
+					_campaigns.set("goal", $scope.goal);
+					_campaigns.set("isVerified", false);
+					_campaigns.set("shelterIds", $scope.shelterIds);
+					_campaigns.save(null, {
+					success: function(campaign) {
+						alert("Campaign created");
+					},
+					error: function(campaign, error) {
+						alert("Campaign was not created");
+						}
+					});
+					//_campaigns.set("itemCount", $scope.itemCount);
+					//_campaigns.set("dollarCount", $scope.dollarCount);
+	}
+})
+
+.controller('campStatusController', function($scope,$timeout) {
+	$scope.lookupCampaign = function() {
+		var _Campaigns = Parse.Object.extend("Campaigns");
+
+		var query = new Parse.Query(_Campaigns);
+		var _campaigns = new _Campaigns();
+ 
+		query.equalTo("campaignName", $scope.campaignName);
+
+		//find using query.find
+		query.find({
+			success: function(results) {
+				if(results.length === 1) {
+					document.getElementById("campaignName").innerHTML = results[0].get('campaignName');
+					document.getElementById("shelterIds").innerHTML = results[0].get('shelterIds');
+					document.getElementById("place").innerHTML = results[0].get('place');
+					document.getElementById("startDate").innerHTML = results[0].get('startDate');
+					document.getElementById("endDate").innerHTML = results[0].get('endDate');
+					document.getElementById("description").innerHTML = results[0].get('description');
+					document.getElementById("goal").innerHTML = results[0].get('goal');
+					document.getElementById("itemCount").innerHTML = results[0].get('itemCount');
+					//attempting to set up live updating
+					//for (var i = 0; i < 30; i++) {
+					//	$timeout(function(){document.getElementById("itemCount").innerHTML = results[0].get('itemCount')}, 2000);
+					//};
+					
+				}
+				else
+					alert("That Campaign does not exist");
+				},
+				error: function(results, error) {
+					alert("Error: " + error.code + error.message);
+				}
+			});
+		}
 });

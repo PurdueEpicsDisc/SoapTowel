@@ -1,0 +1,22 @@
+<div ng-controller="campStatusController">
+
+	Campaign Status!
+	<form name="campaignStatusForm">
+				<table border="0">
+					<tr><td>Campaign Name</td><td><input name="campaignName" type="text" ng-model="campaignName"/>
+					</td></tr>
+					<tr><td><button ng-click="lookupCampaign()">Look Up</button></td></tr>
+				</table>
+			</form>
+	<table border="0">
+		<tr><td>Campaign Name: </td><td id="campaignName"></td></tr>
+		<tr><td>Shelter: </td><td id="shelterIds"></td></tr>
+		<tr><td>Place: </td><td id="place"></td></tr>
+		<tr><td>Start Date: </td><td id="startDate"></td></tr>
+		<tr><td>End Date: </td><td id="endDate"></td></tr>
+		<tr><td>Description: </td><td id="description"></td></tr>
+		<tr><td>Goal: </td><td id="goal"></td></tr>
+		<tr><td>Items Collected: </td><td id="itemCount"></td></tr>
+	</table>
+</div>
+

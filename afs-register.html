@@ -19,31 +19,7 @@
 							<span ng-show="regForm.name.$error.pattern">Names can only contain letters</span>
 						</span>
 				</td></tr>
-				<!--<tr><td>Address</td><td><input type="text" ng-model="address" name="address" ng-pattern="/\d{3,8}([a-zA-Z ]){6,32}$/" required/>
-					<span style="color:red" ng-show="regForm.address.$dirty && regForm.address.$invalid">
-						<span ng-show="regForm.address.$error.pattern">Invalid Address</span>
-						</span>
-				</td></tr>
-				<tr><td>City</td><td><input type="text" ng-model="city" name="city" ng-pattern="/^([a-zA-Z]){4,15}$/" maxlength="15" required/>
-					<span style="color:red" ng-show="regForm.city.$dirty && regForm.city.$invalid">
-						<span ng-show="regForm.city.$error.pattern">Cities can only contain letters</span>
-					</span>
-				</td></tr>
-				<tr><td>State</td><td><input type="text" ng-model="state" name="state" maxlength="15" ng-maxlength="15"ng-pattern="/^([a-zA-Z]){4,15}$/" required/>
-					<span style="color:red" ng-show="regForm.state.$dirty && regForm.state.$invalid">
-						<span ng-show="regForm.state.$error.pattern">States can only contain letters</span>
-					</span>
-				</td></tr>
-				<tr><td>Zip Code</td><td><input type="text" ng-model="zipCode" name="zipCode" ng-maxlength="6" ng-pattern="/\d{5,10}/"required/>
-					<span style="color:red" ng-show="regForm.zipCode.$dirty && regForm.zipCode.$invalid" >
-						<span ng-show="regForm.zipCode.$error.pattern">Invalid Zip Code</span>
-					</span>
-				</td></tr>
-				<tr><td>Phone Number</td><td><input type="text" ng-model="phoneNumber" name="phoneNumber" ng-pattern="/\b\d{3}[-]\d{3}[-]\d{4}\b/" required />
-					<span style="color:red" ng-show="regForm.phoneNumber.$dirty && regForm.phoneNumber.$invalid">
-						<span ng-show="regForm.phoneNumber.$error.pattern">Invalid phone number</span>
-					</span>
-				</td></tr>-->
+
 				<tr><td>Email </td><td><input type="email" ng-model="email" name="email" ng-pattern="/([a-zA-Z0-9])[@][a-zA-Z]{4,20}[.]\w{3}$/" required/>
 					<span style="color:red" ng-show="regForm.email.$dirty && regForm.email.$invalid">
 						<!-- Regex Expression to match email! -->
